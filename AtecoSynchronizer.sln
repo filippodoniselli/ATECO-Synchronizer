@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtecoSynchronizer", "AtecoSynchronizer\AtecoSynchronizer.csproj", "{834A63AE-0577-48EC-8F17-BDBF939FA928}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtecoSynchronizer_Test", "AtecoSynchronizer_Test\AtecoSynchronizer_Test.csproj", "{8CF2C231-5D68-4672-896E-815294FCC175}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{834A63AE-0577-48EC-8F17-BDBF939FA928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{834A63AE-0577-48EC-8F17-BDBF939FA928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{834A63AE-0577-48EC-8F17-BDBF939FA928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{834A63AE-0577-48EC-8F17-BDBF939FA928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CF2C231-5D68-4672-896E-815294FCC175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CF2C231-5D68-4672-896E-815294FCC175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CF2C231-5D68-4672-896E-815294FCC175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CF2C231-5D68-4672-896E-815294FCC175}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F67FB37-EDEC-40DF-8D17-DAAED1E2DD48}
+	EndGlobalSection
+EndGlobal
