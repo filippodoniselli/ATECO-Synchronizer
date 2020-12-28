@@ -1,6 +1,10 @@
+AtecoSynchronizer_Test/bin/
 
 AtecoSynchronizer_Test/obj/
 
 AtecoSynchronizer/obj/
 
-AtecoSynchronizer/.vs/
+AtecoSynchronizer/bin/
+
+.vs/
+
