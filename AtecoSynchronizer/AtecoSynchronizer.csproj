@@ -72,23 +72,57 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="XLS\AIRAP\AIRAPBas.xlsx" />
-    <None Include="XLS\AIRAP\AIRAPEmi.xlsx" />
-    <None Include="XLS\AIRAP\AIRAPLaz.xlsx" />
-    <None Include="XLS\AIRAP\AIRAPLig.xlsx" />
-    <None Include="XLS\AIRAP\AIRAPMar.xlsx" />
-    <None Include="XLS\AIRAP\AIRAPPie.xlsx" />
-    <None Include="XLS\AIRAP\AIRAPTos.xlsx" />
-    <None Include="XLS\AIRAP\AIRAPUmb.xlsx" />
-    <None Include="XLS\Cod_Att.xls" />
-    <None Include="XLS\IRP\IRPBASIL.xlsx" />
-    <None Include="XLS\IRP\IRPEMILI.xlsx" />
-    <None Include="XLS\IRP\IRPLAZIO.xlsx" />
-    <None Include="XLS\IRP\IRPLIGUR.xlsx" />
-    <None Include="XLS\IRP\IRPMARCH.xlsx" />
-    <None Include="XLS\IRP\IRPPIEMO.xlsx" />
-    <None Include="XLS\IRP\IRPTOSCA.xlsx" />
-    <None Include="XLS\IRP\IRPUMBRI.xlsx" />
+    <None Include="XLS\AIRAP\AIRAPBas.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\AIRAP\AIRAPEmi.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\AIRAP\AIRAPLaz.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\AIRAP\AIRAPLig.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\AIRAP\AIRAPMar.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\AIRAP\AIRAPPie.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\AIRAP\AIRAPTos.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\AIRAP\AIRAPUmb.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\Cod_Att.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\IRP\IRPBASIL.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\IRP\IRPEMILI.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\IRP\IRPLAZIO.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\IRP\IRPLIGUR.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\IRP\IRPMARCH.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\IRP\IRPPIEMO.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\IRP\IRPTOSCA.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XLS\IRP\IRPUMBRI.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
