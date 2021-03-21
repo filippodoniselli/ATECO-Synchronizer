@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Configuration;
+using NPOI.HSSF.UserModel;
+using NPOI.XSSF.UserModel;
+using NPOI.SS.UserModel;
 
 namespace AtecoSynchronizer
 {
@@ -16,6 +19,16 @@ namespace AtecoSynchronizer
             if (!Directory.Exists(logs.ToString()))
                 logs.Create();
             string IRP_path = Directory.GetCurrentDirectory() + ConfigurationManager.AppSettings["IRP"], AIRAP_path = Directory.GetCurrentDirectory() + ConfigurationManager.AppSettings["AIRAP"];
+        }
+        public Boolean WellFormedXLS(string path)
+        {
+            if (path.Contains("\\.xls"))
+            {
+                FileStream input = new FileStream(path, FileMode.Open, FileAccess.Read);
+                HSSFWorkbook workbook = new HSSFWorkbook(input);
+                ISheet sheet = workbook.GetSheetAt(0);
+
+            }
         }
     }
 }
