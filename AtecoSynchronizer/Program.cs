@@ -32,7 +32,10 @@ namespace AtecoSynchronizer
             }
             int i;
             if (WellFormed(Cod_Att_path) == false)
+            {
+                log.Error("Cod_Att bad formed. Impossible to generate output");
                 return;
+            }
             List<Tuple<string, string>> Cod_Att = Convert(Cod_Att_path);
             for (i = 0; i < IRP_files.Length; i++)
             {
@@ -46,6 +49,7 @@ namespace AtecoSynchronizer
         }
         public static bool WellFormed(string path)
         {
+            bool response = true;
             FileStream input = new FileStream(path, FileMode.Open, FileAccess.Read);
             if (path.EndsWith(".xls"))
             {
@@ -54,10 +58,8 @@ namespace AtecoSynchronizer
                 if (CheckingInstructionSet(sheet) == false)
                 {
                     log.Warn("Error in " + path);
-                    return false;
+                    response = false;
                 }
-                else
-                    return true;
             }
             else if (path.EndsWith(".xlsx"))
             {
@@ -66,20 +68,21 @@ namespace AtecoSynchronizer
                 if (CheckingInstructionSet(sheet) == false)
                 {
                     log.Warn("Error in " + path);
-                    return false;
+                    response = false;
                 }
-                return true;
             }
             else
             {
                 log.Warn("Uncorrect extension: " + path);
-                return false;
+                response = false;
             }
+            return response;
         }
         public static bool CheckingInstructionSet(ISheet sheet)
         {
             int i;
-            IRow row = sheet.GetRow(0); ;
+            bool response = true;
+            IRow row = sheet.GetRow(0);
             switch (row.PhysicalNumberOfCells)
             {
                 case 2:
@@ -87,7 +90,7 @@ namespace AtecoSynchronizer
                     {
                         row = sheet.GetRow(i);
                         if (row.GetCell(0).CellType != CellType.String || row.GetCell(1).CellType != CellType.String || String.IsNullOrWhiteSpace(row.GetCell(0).StringCellValue) == true || String.IsNullOrWhiteSpace(row.GetCell(1).StringCellValue) == true)
-                            return false;
+                            response = false;
                     }
                     break;
                 case 4:
@@ -97,15 +100,16 @@ namespace AtecoSynchronizer
                     {
                         row = sheet.GetRow(i);
                         if (row.GetCell(0).StringCellValue == "XX")
-                            return true;
+                            break;
                         if (row.GetCell(0).CellType != CellType.String || row.GetCell(2).CellType != CellType.String || String.IsNullOrWhiteSpace(row.GetCell(0).StringCellValue) == true  || String.IsNullOrWhiteSpace(row.GetCell(2).StringCellValue) == true)
-                            return false;
+                            response = false;
                     }
                     break;
                 default:
-                    return false;
+                    response = false;
+                    break;
             }
-            return true;
+            return response;
         }
         public static List<Tuple<string, string>> Convert(string path)
         {
