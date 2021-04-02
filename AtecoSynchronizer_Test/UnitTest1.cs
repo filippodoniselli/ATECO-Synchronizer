@@ -1,9 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using NPOI.HSSF.UserModel;
-using NPOI.XSSF.UserModel;
 using NPOI.SS.UserModel;
 using AtecoSynchronizer;
 
@@ -120,9 +118,9 @@ namespace AtecoSynchronizer_Test
             cell01.SetCellValue("-");
             cell10.SetCellValue("1");
             cell11.SetCellValue("1");
-            var item1 = new Tuple<string, string>( "-", "-");
-            var item2 = new Tuple<string, string>( "1" , "1");
-            Assert.IsTrue(Program.ConversionInstructionSet(sheet).IndexOf(item1) == 0 && Program.ConversionInstructionSet(sheet).IndexOf(item2) == 1);
+            var item1 = new KeyValuePair<string, string>( "-", "-");
+            var item2 = new KeyValuePair<string, string>( "1" , "1");
+            Assert.IsTrue(Program.ConversionInstructionSet(sheet).Contains(item1) && Program.ConversionInstructionSet(sheet).Contains(item2));
         }
         [TestMethod]
         public void ConversionIS_4_6_8_Rows()
@@ -138,10 +136,30 @@ namespace AtecoSynchronizer_Test
             cell03.SetCellValue("-");
             cell10.SetCellValue("1");
             cell12.SetCellValue("1");
-            var item1 = new Tuple<string, string>("-", "-");
-            var item2 = new Tuple<string, string>("1", "1");
-            Assert.IsTrue(Program.ConversionInstructionSet(sheet).IndexOf(item1) == 0 && Program.ConversionInstructionSet(sheet).IndexOf(item2) == 1);
+            var item1 = new KeyValuePair<string, string>("-", "-");
+            var item2 = new KeyValuePair<string, string>("1", "1");
+            Assert.IsTrue(Program.ConversionInstructionSet(sheet).Contains(item1) && Program.ConversionInstructionSet(sheet).Contains(item2));
         }
-
+        [TestMethod]
+        public void Correlate_Test_Correct()
+        {
+            List<KeyValuePair<string, string>> IRP = new List<KeyValuePair<string, string>>(), AIRAP = new List<KeyValuePair<string, string>>(), CODATT = new List<KeyValuePair<string, string>>();
+            KeyValuePair<string, string> irp = new KeyValuePair<string, string>("1", "3"), airap = new KeyValuePair<string, string>("3", "4"), codatt = new KeyValuePair<string, string>("1", "2");
+            IRP.Add(irp);
+            AIRAP.Add(airap);
+            CODATT.Add(codatt);
+            Tuple<string, string, string, string> element = new Tuple<string, string, string, string>("1", "2", "3", "4");
+            Assert.IsTrue(Program.Correlate(IRP, AIRAP, CODATT).Contains(element));
+        }
+        [TestMethod]
+        public void Correlate_Test_UnCorrect()
+        {
+            List<KeyValuePair<string, string>> IRP = new List<KeyValuePair<string, string>>(), AIRAP = new List<KeyValuePair<string, string>>(), CODATT = new List<KeyValuePair<string, string>>();
+            KeyValuePair<string, string> irp = new KeyValuePair<string, string>("1", "3"), airap = new KeyValuePair<string, string>("5", "4"), codatt = new KeyValuePair<string, string>("1", "2");
+            IRP.Add(irp);
+            AIRAP.Add(airap);
+            CODATT.Add(codatt);
+            Assert.IsTrue(Program.Correlate(IRP, AIRAP, CODATT).Count == 0);
+        }
     }
 }
